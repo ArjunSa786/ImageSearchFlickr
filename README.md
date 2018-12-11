@@ -4,7 +4,7 @@ Swift
 
 MVC
 
-Gernrics
+Generics
 
 Protocol
 
@@ -14,7 +14,7 @@ Imagecachable
 
 Autolayout
 
-NSUrlSession
+NSURLSession
 
 TableViewController
 
