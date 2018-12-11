@@ -14,7 +14,7 @@ import UIKit
 extension UIView
 {
     func showBlurLoader(){
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -29,7 +29,7 @@ extension UIView
         self.addSubview(blurEffectView)
     }
     
-    func removeBluerLoader(){
+    func removeBlurLoader(){
         self.subviews.compactMap {  $0 as? UIVisualEffectView }.forEach {
             $0.removeFromSuperview()
         }

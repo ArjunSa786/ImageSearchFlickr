@@ -8,17 +8,17 @@ import UIKit
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
 
-    @IBOutlet weak var m_photoTableView: UITableView!
+    @IBOutlet weak var m_PhotoTableView: UITableView!
     
-    @IBOutlet weak var m_photosearchBar: UISearchBar!
+    @IBOutlet weak var m_PhotoSearchBar: UISearchBar!
 
     private var searchString:String!
-    private var int_Page:Int = 1
+    private var pageNumber:Int = 1
     private let cellID = "PhotoCellIdentifier"
     private var photosArray = [Photo]()
     {
         didSet {
-            self.m_photoTableView.reloadData()
+            self.m_PhotoTableView.reloadData()
         }
     }
 
@@ -29,7 +29,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        m_photosearchBar.delegate = self
 
     }
 
@@ -43,7 +42,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 // Generic method
     
     private func getPhotosList<S: GetPhotos>(fromService service: S) where S.T == Array<Photo?> {
-        service.getPhotosList(page: String(int_Page),searchStr: searchString, completion: { [weak self] (result) in
+        service.getPhotosList(page: String(pageNumber),searchStr: searchString, completion: { [weak self] (result) in
             switch result {
             case .Success(let Photos):
                 for Photos in Photos {
@@ -54,7 +53,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             case .Error(let error):
                 print(error)
             }
-            self?.view.removeBluerLoader()
+            self?.view.removeBlurLoader()
 
         })
     }
@@ -77,7 +76,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == photosArray.count - 1 {
-            int_Page += 1
+            pageNumber += 1
             self.view.showBlurLoader()
             getPhotosList(fromService: service)
 
@@ -95,7 +94,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     // MARK: - Search Bar
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchString = searchBar.text
-        self.m_photosearchBar.endEditing(true)
+        self.m_PhotoSearchBar.endEditing(true)
         self.view.showBlurLoader()
         self.photosArray.removeAll()
         // Call Service class using Generic Function
