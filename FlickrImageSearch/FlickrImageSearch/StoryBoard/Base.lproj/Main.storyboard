@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qFk-xS-GT5">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="wHg-18-srH">
+            <objects>
+                <viewController id="qFk-xS-GT5" customClass="ViewController" customModule="FlickrImageSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E7G-A7-IE7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Photo Search" translatesAutoresizingMaskIntoConstraints="NO" id="XXb-k3-ExJ">
+                                <rect key="frame" x="0.0" y="38" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="qFk-xS-GT5" id="iUr-3W-p5E"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OYL-wn-wcN">
+                                <rect key="frame" x="0.0" y="94" width="375" height="573"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCellIdentifier" rowHeight="236" id="i2U-Gh-7zf" customClass="PhotosTableViewCell" customModule="FlickrImageSearch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="236"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i2U-Gh-7zf" id="C5x-fO-fkb">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="235.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a1g-7s-qOy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="230.5"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t8U-SQ-FlJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="230.5"/>
+                                                    <color key="backgroundColor" red="0.1960784314" green="0.20392156859999999" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cA9-gN-dHe">
+                                                    <rect key="frame" x="28" y="116" width="319" height="0.0"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="t8U-SQ-FlJ" firstAttribute="width" secondItem="a1g-7s-qOy" secondAttribute="width" id="BcB-aA-2Nl"/>
+                                                <constraint firstItem="cA9-gN-dHe" firstAttribute="centerX" secondItem="t8U-SQ-FlJ" secondAttribute="centerX" id="GQR-sa-zzQ"/>
+                                                <constraint firstItem="a1g-7s-qOy" firstAttribute="top" secondItem="C5x-fO-fkb" secondAttribute="top" id="HAh-SY-7RS"/>
+                                                <constraint firstItem="t8U-SQ-FlJ" firstAttribute="centerY" secondItem="a1g-7s-qOy" secondAttribute="centerY" id="K4n-vg-aTh"/>
+                                                <constraint firstAttribute="bottom" secondItem="a1g-7s-qOy" secondAttribute="bottom" constant="5" id="MHd-fp-1Cn"/>
+                                                <constraint firstItem="cA9-gN-dHe" firstAttribute="width" secondItem="t8U-SQ-FlJ" secondAttribute="width" multiplier="0.85" id="NLt-Vg-MMD"/>
+                                                <constraint firstItem="t8U-SQ-FlJ" firstAttribute="centerX" secondItem="a1g-7s-qOy" secondAttribute="centerX" id="ZSa-yd-QM0"/>
+                                                <constraint firstItem="cA9-gN-dHe" firstAttribute="centerY" secondItem="t8U-SQ-FlJ" secondAttribute="centerY" id="d59-y2-Smy"/>
+                                                <constraint firstItem="a1g-7s-qOy" firstAttribute="width" secondItem="C5x-fO-fkb" secondAttribute="width" id="r8S-Ag-7Nj"/>
+                                                <constraint firstItem="a1g-7s-qOy" firstAttribute="centerX" secondItem="C5x-fO-fkb" secondAttribute="centerX" id="sUc-uE-tnM"/>
+                                                <constraint firstItem="t8U-SQ-FlJ" firstAttribute="height" secondItem="a1g-7s-qOy" secondAttribute="height" id="yxj-Bp-G6W"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="m_bgblurImageView" destination="t8U-SQ-FlJ" id="i3R-rI-aiu"/>
+                                            <outlet property="m_flickrImageView" destination="a1g-7s-qOy" id="3cP-v9-CTT"/>
+                                            <outlet property="m_titleLabel" destination="cA9-gN-dHe" id="Ml1-8W-A6Q"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="qFk-xS-GT5" id="Pmq-SQ-O0S"/>
+                                    <outlet property="delegate" destination="qFk-xS-GT5" id="cgA-yP-if9"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OYL-wn-wcN" firstAttribute="top" secondItem="XXb-k3-ExJ" secondAttribute="bottom" id="0ea-be-4uz"/>
+                            <constraint firstItem="OYL-wn-wcN" firstAttribute="centerX" secondItem="XXb-k3-ExJ" secondAttribute="centerX" id="AJ4-n5-7vf"/>
+                            <constraint firstItem="XXb-k3-ExJ" firstAttribute="width" secondItem="E7G-A7-IE7" secondAttribute="width" id="Lxj-4w-2vD"/>
+                            <constraint firstItem="XXb-k3-ExJ" firstAttribute="centerX" secondItem="dPT-Bt-kEf" secondAttribute="centerX" id="gLt-12-OiV"/>
+                            <constraint firstItem="XXb-k3-ExJ" firstAttribute="top" secondItem="dPT-Bt-kEf" secondAttribute="top" constant="18" id="geW-hl-edx"/>
+                            <constraint firstItem="OYL-wn-wcN" firstAttribute="width" secondItem="XXb-k3-ExJ" secondAttribute="width" id="inA-nY-zQE"/>
+                            <constraint firstItem="dPT-Bt-kEf" firstAttribute="bottom" secondItem="OYL-wn-wcN" secondAttribute="bottom" id="n2f-IE-peF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dPT-Bt-kEf"/>
+                    </view>
+                    <connections>
+                        <outlet property="m_photoTableView" destination="OYL-wn-wcN" id="tOM-2h-TYv"/>
+                        <outlet property="m_photosearchBar" destination="XXb-k3-ExJ" id="Wat-ye-zfV"/>
+                        <outlet property="searchDisplayController" destination="2Zo-2y-ZgH" id="cok-XK-sq7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2wg-7i-85O" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="2Zo-2y-ZgH">
+                    <connections>
+                        <outlet property="delegate" destination="qFk-xS-GT5" id="vrO-Oh-yVl"/>
+                        <outlet property="searchContentsController" destination="qFk-xS-GT5" id="z9Z-Yf-GuZ"/>
+                        <outlet property="searchResultsDataSource" destination="qFk-xS-GT5" id="c1j-da-KtZ"/>
+                        <outlet property="searchResultsDelegate" destination="qFk-xS-GT5" id="THF-j3-K6S"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="92.203898050974516"/>
+        </scene>
+    </scenes>
+</document>
