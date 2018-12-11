@@ -18,7 +18,7 @@ Protocol
 
 Extension
 
-Imagecachable
+Imagecachable with Placeholder Image
 
 Autolayout
 
