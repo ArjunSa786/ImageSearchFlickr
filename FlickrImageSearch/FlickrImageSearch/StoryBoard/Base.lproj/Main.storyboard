@@ -91,8 +91,8 @@
                         <viewLayoutGuide key="safeArea" id="dPT-Bt-kEf"/>
                     </view>
                     <connections>
-                        <outlet property="m_photoTableView" destination="OYL-wn-wcN" id="tOM-2h-TYv"/>
-                        <outlet property="m_photosearchBar" destination="XXb-k3-ExJ" id="Wat-ye-zfV"/>
+                        <outlet property="m_PhotoSearchBar" destination="XXb-k3-ExJ" id="oRU-Ns-rcc"/>
+                        <outlet property="m_PhotoTableView" destination="OYL-wn-wcN" id="fWE-4W-ioI"/>
                         <outlet property="searchDisplayController" destination="2Zo-2y-ZgH" id="cok-XK-sq7"/>
                     </connections>
                 </viewController>
