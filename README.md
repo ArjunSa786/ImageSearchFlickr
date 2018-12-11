@@ -4,7 +4,7 @@ Swift
 
 MVC
 
-gernrics
+Gernrics
 
 Protocol
 
